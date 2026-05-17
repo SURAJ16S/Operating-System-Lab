@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Step 1:
+# Create file with .sh extension
+
+# Step 2:
+# Give execute permission
+# chmod +x calculator.sh
+
+# Step 3:
+# Run program
+# ./calculator.sh
+# OR
+# bash calculator.sh
+
+while true
+do
+    echo ""
+    echo "1.Addition"
+    echo "2.Subtraction"
+    echo "3.Multiplication"
+    echo "4.Division"
+    echo "5.Exit"
+
+    read -p "Enter choice: " ch
+
+    if [ $ch -eq 5 ]
+    then
+        echo "Calculator Closed"
+        break
+    fi
+
+    read -p "Enter first number: " a
+    read -p "Enter second number: " b
+
+    if [ $ch -eq 1 ]
+    then
+        echo "Result = $(echo "$a + $b" | bc)"
+
+    elif [ $ch -eq 2 ]
+    then
+        echo "Result = $(echo "$a - $b" | bc)"
+
+    elif [ $ch -eq 3 ]
+    then
+        echo "Result = $(echo "$a * $b" | bc)"
+
+    elif [ $ch -eq 4 ]
+    then
+        echo "Result = $(echo "scale=2; $a / $b" | bc)"
+
+    else
+        echo "Invalid Choice"
+    fi
+
+done
