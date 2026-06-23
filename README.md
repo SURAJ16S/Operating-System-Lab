@@ -2,94 +2,85 @@
 
 Welcome to the **Operating System Lab** repository! This project serves as a deeply comprehensive collection of classical Operating System algorithms, process management techniques, synchronization problems, and bash scripting utilities, primarily implemented in **C**, **C++**, and **Bash**.
 
-It is structured to reflect standard OS lab assignments, covering topics from low-level process creation (fork/exec) to high-level scheduling and deadlock avoidance algorithms.
+All files have been strictly structured and accurately renamed with their proper extensions (`.c`, `.cpp`, `.sh`) to eliminate confusion and streamline direct compilation.
 
 ---
 
 ## 📑 Table of Contents
 
-- [Repository Structure & Organization](#repository-structure--organization)
+- [Repository Organization](#repository-organization)
 - [1. CPU Scheduling Algorithms](#1-cpu-scheduling-algorithms)
 - [2. Disk Scheduling Algorithms](#2-disk-scheduling-algorithms)
 - [3. Page Replacement Algorithms](#3-page-replacement-algorithms)
-- [4. Deadlock Avoidance (Banker's Algorithm)](#4-deadlock-avoidance-bankers-algorithm)
-- [5. System Calls & Process Management (C)](#5-system-calls--process-management-c)
+- [4. Deadlock Avoidance](#4-deadlock-avoidance)
+- [5. System Calls & Process Management](#5-system-calls--process-management)
 - [6. Bash Shell Scripting Utilities](#6-bash-shell-scripting-utilities)
 - [Getting Started (Compilation & Execution)](#getting-started-compilation--execution)
 
 ---
 
-## 📂 Repository Structure & Organization
+## 📂 Repository Organization
 
-The repository contains files at the **root level** (often saved as `.txt` files for easy browser viewing) and a strictly organized **`Programs/`** subdirectory which logically groups assignments and practical scripts.
+The entire codebase is cleanly categorized by computer science concepts into 6 main directories:
 
 ```text
 Operating-System-Lab/
-├── Programs/
-│   ├── asmt5/             # Banker's Algorithm
-│   ├── asmt6/             # Page Replacement Algorithms
-│   ├── asmt7/             # CPU Scheduling Algorithms
-│   ├── asmt8/             # Disk Scheduling Algorithms
-│   ├── *.c                # System Call & Process Management
-│   └── *.sh               # Bash Shell Scripting utilities
-├── *.txt                  # Root level raw algorithm implementations
+├── CPU_Scheduling/          # CPU resource allocation algorithms
+├── Disk_Scheduling/         # HDD I/O seek algorithms
+├── Page_Replacement/        # Memory paging & swapping algorithms
+├── Deadlock_Avoidance/      # Banker's algorithm (safe state)
+├── System_Calls/            # Low-level UNIX process management in C
+├── Shell_Scripts/           # Bash scripts for OS administration
 └── README.md
 ```
-
-### ⚠️ Important Note on File Extensions
-Files with `.txt` extensions (e.g., `cpu_fcfs.txt`, `calculator.txt`, `Programs/asmt7/cpu-fcfs.cpp.txt`) are intentionally uploaded as text. **To execute them, you must rename them** to their proper extension (`.c`, `.cpp`, or `.sh`) as specified in the header comment of each file.
 
 ---
 
 ## 1. CPU Scheduling Algorithms
+**Location:** `/CPU_Scheduling/`
 
-Scheduling algorithms allocate CPU time to processes efficiently.
-
-**Implementations (Root & `Programs/asmt7/`):**
-- **First Come First Serve (FCFS):** `cpu_fcfs.txt`, `Programs/asmt7/cpu-fcfs.cpp.txt`
-- **Shortest Job First (SJF):** `cpu_sjf.txt`, `Programs/asmt7/cpu-sjf (2).cpp.txt`
-- **Priority Scheduling:** `cpu_priority.txt`, `Programs/asmt7/cpu-priority.cpp.txt`
-- **Round Robin:** `round_robin.txt`, `Programs/asmt7/cpu-roundrobin.cpp.txt`
+Scheduling algorithms allocate CPU time to processes efficiently. This directory contains multiple logic variations (both C and C++ assignments):
+- **FCFS (First Come First Serve):** `cpu_fcfs.c`, `cpu_fcfs.cpp`
+- **SJF (Shortest Job First):** `cpu_sjf.c`, `cpu_sjf_v2.cpp`
+- **Priority Scheduling:** `cpu_priority.c`, `cpu_priority.cpp`
+- **Round Robin:** `round_robin.c`, `cpu_roundrobin.cpp`
 
 ---
 
 ## 2. Disk Scheduling Algorithms
+**Location:** `/Disk_Scheduling/`
 
-Disk scheduling is done by operating systems to schedule I/O requests arriving for the disk.
-
-**Implementations (Root & `Programs/asmt8/`):**
-- **FCFS (First Come First Serve):** `disk-fcfs.txt`, `Programs/asmt8/disk-fcfs.cpp.txt`
-- **SSTF (Shortest Seek Time First):** `disk-sstf.txt`, `Programs/asmt8/disk-sstf.cpp.txt`
-- **SCAN (Elevator Algorithm):** `scan.txt`, `Programs/asmt8/disk-scan.cpp.txt`
-- **C-SCAN (Circular SCAN):** `s-scan.txt`, `Programs/asmt8/disk-cscan.cpp.txt`
+Disk scheduling manages incoming I/O requests to the hard disk to minimize seek time.
+- **FCFS (First Come First Serve):** `disk_fcfs.c`, `disk_fcfs.cpp`
+- **SSTF (Shortest Seek Time First):** `disk_sstf.c`, `disk_sstf.cpp`
+- **SCAN (Elevator Algorithm):** `scan.c`, `disk_scan.cpp`
+- **C-SCAN (Circular SCAN):** `cscan.c`, `disk_cscan.cpp`
 
 ---
 
 ## 3. Page Replacement Algorithms
+**Location:** `/Page_Replacement/`
 
 When memory is full, the OS must decide which memory pages to swap out to make room for new pages.
-
-**Implementations (Root & `Programs/asmt6/`):**
-- **Consolidated Implementation:** `Programs/asmt6/PageReplacement.cpp`
-- **FIFO (First In First Out):** `fifo.txt`
-- **LRU (Least Recently Used):** `LRU.txt`
-- **Optimal Page Replacement:** `optimal.txt`
+- **Consolidated Assignment:** `PageReplacement.cpp` (A combined C++ approach)
+- **FIFO (First In First Out):** `fifo.c`
+- **LRU (Least Recently Used):** `lru.c`
+- **Optimal Page Replacement:** `optimal.c`
 
 ---
 
-## 4. Deadlock Avoidance (Banker's Algorithm)
+## 4. Deadlock Avoidance
+**Location:** `/Deadlock_Avoidance/`
 
 Evaluates system state dynamically to ensure resource allocation doesn't lead to a deadlock (identifying a Safe State).
-
-**Implementations (Root & `Programs/asmt5/`):**
-- **Banker's Algorithm:** `banker.txt`, `Programs/asmt5/Bankers.cpp`
+- **Banker's Algorithm:** `banker.cpp`, `Bankers.cpp`
 
 ---
 
-## 5. System Calls & Process Management (C)
+## 5. System Calls & Process Management
+**Location:** `/System_Calls/`
 
-The `Programs/` directory contains rich examples of UNIX system calls for process management. These are ready-to-compile `.c` files.
-
+Rich examples of UNIX system calls for process management using **C**.
 - **Process Creation (`fork`):** 
   - `fork_basic.c`: Basic `fork()` demonstration.
   - `multiple_children.c`: Spawning multiple child processes.
@@ -108,15 +99,15 @@ The `Programs/` directory contains rich examples of UNIX system calls for proces
 ---
 
 ## 6. Bash Shell Scripting Utilities
+**Location:** `/Shell_Scripts/`
 
-A collection of bash scripts in `Programs/` automating daily administrative and OS tasks (with `.txt` equivalents in the root directory).
-
+A robust collection of `.sh` scripts automating daily administrative OS tasks.
 - **System & Disk Monitoring:** 
   - `disk_usage.sh`: Quickly checks disk usage.
   - `monitor_disk.sh`: Advanced continuous disk monitoring.
-  - `count_stats.sh`: Script to count file stats (lines, words, characters).
+  - `count_stats.sh`: Counts lines, words, and characters.
 - **File & Text Operations:** 
-  - `file_ops_menu.sh` / `file_operations.txt`: Interactive menu for file operations (create, copy, delete).
+  - `file_ops_menu.sh` / `file_operations.sh`: Interactive menu for file operations (create, copy, delete).
   - `merge_files.sh`: Merges the content of multiple files.
   - `search_word.sh`: Searches for specific words/strings inside files.
   - `clean_tmp.sh`: Automatically cleans up temporary files.
@@ -125,7 +116,7 @@ A collection of bash scripts in `Programs/` automating daily administrative and 
   - `tail_n.sh`: Displays the last N lines of a file.
   - `sort_nums.sh`: Reads and sorts numeric input.
 - **Mathematics:** 
-  - `calculator.sh` / `calculator.txt`: Interactive terminal calculator for basic math operations.
+  - `calculator.sh`: Interactive terminal calculator for basic math operations.
 
 ---
 
